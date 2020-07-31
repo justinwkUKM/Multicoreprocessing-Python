@@ -21,3 +21,7 @@ Unless you are running a machine with more than 10 processors, the Process code 
 
 ## Caution
 The multiprocessed code doesn’t execute in the same order as serial execution. There’s no guarantee that the first process to be created will be the first to start or complete. As a result, multiprocessed code usually executes in a different order each time it is run, even if each result is always the same.
+
+## Reference 
+Python Documentation - https://docs.python.org/2/library/multiprocessing.html
+Medium Blogpost about multiprocessing by Data@Urban - https://medium.com/@urban_institute/using-multiprocessing-to-make-python-code-faster-23ea5ef996ba
