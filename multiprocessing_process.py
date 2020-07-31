@@ -39,3 +39,17 @@ if __name__ == '__main__':
         process.join()
         
     print('That took {} seconds'.format(time.time() - starttime))
+    
+
+#OUTPUT
+# 0 squared results in a/an zero number
+# 1 squared results in a/an odd number
+# 2 squared results in a/an even number
+# 3 squared results in a/an odd number
+# 4 squared results in a/an even number
+# 5 squared results in a/an odd number
+# 6 squared results in a/an even number
+# 7 squared results in a/an odd number
+# 8 squared results in a/an even number
+# 9 squared results in a/an odd number
+# That took 2.047743797302246 seconds
