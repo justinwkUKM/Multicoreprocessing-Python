@@ -33,3 +33,16 @@ if __name__ == '__main__':
     pool.map(multiprocessing_func, range(0,10))
     pool.close()
     print('That took {} seconds'.format(time.time() - starttime))
+    
+#OUTPUT
+# 0 squared results in a/an zero number of 0
+# 1 squared results in a/an odd number of 1
+# 2 squared results in a/an even number of 4
+# 3 squared results in a/an odd number of 9
+# 4 squared results in a/an even number of 16
+# 5 squared results in a/an odd number of 25
+# 6 squared results in a/an even number of 36
+# 7 squared results in a/an odd number of 49
+# 8 squared results in a/an even number of 64
+# 9 squared results in a/an odd number of 81
+# That took 5.032037258148193 seconds
