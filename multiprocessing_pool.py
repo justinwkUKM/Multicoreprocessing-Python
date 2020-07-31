@@ -34,6 +34,15 @@ if __name__ == '__main__':
     pool.close()
     print('That took {} seconds'.format(time.time() - starttime))
     
+    # Unless you are running a machine with more than 10 processors, the Process code should run faster than the Pool code.
+    # Process sends code to a processor as soon as the process is started. Pool sends a code to each available processor and 
+    # doesn’t send any more until a processor has finished computing the first section of code. Pool does this so that processes 
+    # don’t have to compete for computing resources, but this makes it slower than Process in cases where each process is lengthy. 
+    # For an example where Pool is faster than Process, remove the line time.sleep(2) in multiprocessing_func in both the 
+    # Process and Pool codes.
+    
+    
+    
 #OUTPUT
 # 0 squared results in a/an zero number of 0
 # 1 squared results in a/an odd number of 1
