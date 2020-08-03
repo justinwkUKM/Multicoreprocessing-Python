@@ -3,6 +3,9 @@ The “multi” in multiprocessing refers to the multiple cores in a computer’
 
 In Python, single-CPU use is caused by the global interpreter lock (GIL), which allows only one thread to carry the Python interpreter at any given time. The GIL was implemented to handle a memory management issue, but as a result, Python is limited to using a single processor. Bypassing the GIL when executing Python code allows the code to run faster because we can now take advantage of multiprocessing. Python’s built-in multiprocessing module allows us to designate certain sections of code to bypass the GIL and send the code to multiple processors for simultaneous execution.
 
+When to use Multiprocessing vs Threading? Simplified Short answer. Multiprocessing for CPU bound tasks, Threading for I/O bound tasks.
+
+
 ## Traditional programming
 The traditional for-loop iteration goes through the list one by one and performs the functions on each item individually. In this model, the loops use only 30 to 40 percent of the available CPU power. If we were to use multiprocessing, the function would be executed on multiple list items at once and up to 100 percent of the CPU could be used on a multicore machine. Best of all, we would see a dramatic reduction in execution time.
 
