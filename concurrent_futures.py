@@ -14,8 +14,28 @@ def do_a_task(seconds) -> str:
     return f'Done sleeping for {seconds} second(s)'
 
 
+# '''submit many processes'''
+# with concurrent.futures.ProcessPoolExecutor() as executor:
+#     results = [executor.submit(do_a_task, 2) for i in range(10)]
+#     for f in concurrent.futures.as_completed(results):
+#         print(f.result())
+#         # returns the object
+
+
+'''submit many processes with varying times'''
 with concurrent.futures.ProcessPoolExecutor() as executor:
-    secs = [i for i in range(1, 6)]
+    secs = [5, 4, 3, 2, 1]
+    # list(reversed(secs))
+    results = [executor.submit(do_a_task, sec) for sec in secs]
+    for f in concurrent.futures.as_completed(results):
+        print(f.result())
+        # returns the object
+
+'''map function maps the whole list to the function and simply return the result. Map returns result as the 
+processes were started (order) not as they were completed.'''
+with concurrent.futures.ProcessPoolExecutor() as executor:
+    # val = executor.submit(do_a_task, 5)
+    secs = list(reversed([i for i in range(1, 6)]))
     results = executor.map(do_a_task, secs)
 
     for res in results:
