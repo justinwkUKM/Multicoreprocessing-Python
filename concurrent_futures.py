@@ -7,11 +7,14 @@ import time
 
 start = time.perf_counter()
 
+timing = []
+
 
 def do_a_task(seconds) -> str:
     print(f'Sleeping for {seconds} second(s)...')
     time.sleep(seconds)
-    return f'Done sleeping for {seconds} second(s)'
+    timing.append(seconds)
+    return f'Done sleeping for {seconds} second(s)', 1000
 
 # THE WITH FUNCTION acts as a context manager. Auto joins all the processes
 # '''submit many processes'''
@@ -38,9 +41,12 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
     secs = list(reversed([i for i in range(1, 6)]))
     results = executor.map(do_a_task, secs)
 
+    final_res = []
     for res in results:
         print(res)
+        final_res.append(res)
 
 finish = time.perf_counter()
-
-print(f'finished in {round(finish-start, 2)} second(s)...')
+print(type(results))
+print(final_res)
+print(f'finished in {round(finish-start, 2)} second(s)... {timing}')
